@@ -1,5 +1,5 @@
 {
-  "name": "Inventory Hands-on",
+  "name": "GHCP-intermediate Hands-on",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "forwardPorts": [5173, 8000],
   "portsAttributes": {
