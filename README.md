@@ -3,7 +3,7 @@
 ## ワークショップ概要
 - **日時**: 13:00-17:00（4時間）
 - **環境**: GitHub Codespaces
-- **成果物**: 販売データ分析ダッシュボール（Python + FastAPI / React + TypeScript）+ ユーザーマニュアル
+- **成果物**: 販売データ分析ダッシュボード（Python + FastAPI / React + TypeScript）+ ユーザーマニュアル
 
 ## 想定技術要素
 ### バックエンド
