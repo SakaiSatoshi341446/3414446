@@ -5,6 +5,17 @@
 - **環境**: GitHub Codespaces
 - **成果物**: 販売データ分析ダッシュボール（Python + FastAPI / React + TypeScript）+ ユーザーマニュアル
 
+## 想定技術要素
+### バックエンド
+- Python
+- Web API フレームワークは FastAPI を利用すること
+
+### フロントエンド
+- React
+- TypeScript
+- 開発環境は Vite を利用すること
+
+以上の開発環境前提のdevcontainer.jsonが用意されています。
 ---
 
 ## タイムテーブル
