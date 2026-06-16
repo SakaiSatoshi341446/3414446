@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            background: #f8f9fa;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .log {
+            background: #f1f1f1;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .info {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 API Connection Test</h1>
+        
+        <div class="test-section">
+            <h2>System Information</h2>
+            <p>Browser Location: <code id="location"></code></p>
+            <p>API Base URL: <code id="apiUrl"></code></p>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 1: API Direct Access</h2>
+            <button onclick="testDirectAPI()">Test /api/sales</button>
+            <div id="test1-log" class="log"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 2: Fetch with CORS</h2>
+            <button onclick="testFetchCORS()">Test Fetch (mode: cors)</button>
+            <div id="test2-log" class="log"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 3: All Endpoints</h2>
+            <button onclick="testAllEndpoints()">Test All 4 Endpoints</button>
+            <div id="test3-log" class="log"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 4: Load Dashboard</h2>
+            <button onclick="loadDashboard()">Load Full Dashboard</button>
+            <div id="test4-log" class="log"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Browser Console Logs</h2>
+            <p>Check the browser console (F12 → Console tab) for detailed [API] logs</p>
+            <div id="console-log" class="log"></div>
+        </div>
+    </div>
+
+    <script>
+        // Setup
+        const API_BASE_URL = `http://${window.location.hostname}:8000/api`;
+        document.getElementById('location').textContent = window.location.href;
+        document.getElementById('apiUrl').textContent = API_BASE_URL;
+
+        // Console log capture
+        const consoleLogs = [];
+        const originalLog = console.log;
+        const originalError = console.error;
+
+        console.log = function(...args) {
+            const message = args.join(' ');
+            consoleLogs.push(message);
+            originalLog.apply(console, args);
+        };
+
+        console.error = function(...args) {
+            const message = args.join(' ');
+            consoleLogs.push('❌ ' + message);
+            originalError.apply(console, args);
+        };
+
+        function updateConsoleLog() {
+            document.getElementById('console-log').textContent = consoleLogs.join('\n');
+            document.getElementById('console-log').scrollTop = document.getElementById('console-log').scrollHeight;
+        }
+
+        // Test 1: Direct API Access
+        async function testDirectAPI() {
+            const logId = 'test1-log';
+            const log = document.getElementById(logId);
+            log.innerHTML = '';
+
+            try {
+                log.innerHTML += '<span class="info">[Test 1] Starting API test...</span>\n';
+
+                const response = await fetch(`${API_BASE_URL}/sales?start_date=2026-06-01&end_date=2026-06-30`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    credentials: 'omit',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                log.innerHTML += `<span class="info">[Test 1] Status: ${response.status}</span>\n`;
+                log.innerHTML += `<span class="info">[Test 1] CORS Header: ${response.headers.get('access-control-allow-origin') || 'NOT SET'}</span>\n`;
+
+                if (!response.ok) {
+                    log.innerHTML += `<span class="error">[Test 1] HTTP Error: ${response.status}</span>\n`;
+                    return;
+                }
+
+                const data = await response.json();
+                log.innerHTML += `<span class="success">[Test 1] ✅ Success: ${data.count} records received</span>\n`;
+            } catch (error) {
+                log.innerHTML += `<span class="error">[Test 1] ❌ Error: ${error.message}</span>\n`;
+                console.error('[Test 1] Error:', error);
+            }
+
+            updateConsoleLog();
+        }
+
+        // Test 2: Fetch with CORS
+        async function testFetchCORS() {
+            const logId = 'test2-log';
+            const log = document.getElementById(logId);
+            log.innerHTML = '';
+
+            try {
+                log.innerHTML += '<span class="info">[Test 2] Testing fetch with CORS mode...</span>\n';
+
+                const response = await fetch(`${API_BASE_URL}/dashboard/summary?start_date=2026-06-01&end_date=2026-06-30`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    credentials: 'omit',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                log.innerHTML += `<span class="info">[Test 2] Status: ${response.status}</span>\n`;
+
+                if (!response.ok) {
+                    const text = await response.text();
+                    log.innerHTML += `<span class="error">[Test 2] HTTP Error: ${response.status}</span>\n`;
+                    log.innerHTML += `<span class="error">[Test 2] Response: ${text.substring(0, 100)}</span>\n`;
+                    return;
+                }
+
+                const data = await response.json();
+                log.innerHTML += `<span class="success">[Test 2] ✅ Success: ¥${data.total_sales.toLocaleString()} sales</span>\n`;
+            } catch (error) {
+                log.innerHTML += `<span class="error">[Test 2] ❌ Error: ${error.message}</span>\n`;
+                console.error('[Test 2] Error:', error);
+            }
+
+            updateConsoleLog();
+        }
+
+        // Test 3: All Endpoints
+        async function testAllEndpoints() {
+            const logId = 'test3-log';
+            const log = document.getElementById(logId);
+            log.innerHTML = '';
+
+            const endpoints = [
+                { name: '/api/sales', label: 'Sales' },
+                { name: '/api/dashboard/summary', label: 'Summary' },
+                { name: '/api/dashboard/by-product', label: 'By Product' },
+                { name: '/api/dashboard/by-date', label: 'By Date' }
+            ];
+
+            for (const endpoint of endpoints) {
+                try {
+                    log.innerHTML += `<span class="info">[Test 3] Testing ${endpoint.label}...</span>\n`;
+
+                    const response = await fetch(`${API_BASE_URL}${endpoint.name}?start_date=2026-06-01&end_date=2026-06-30`, {
+                        method: 'GET',
+                        mode: 'cors',
+                        credentials: 'omit',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (!response.ok) {
+                        log.innerHTML += `<span class="error">[Test 3] ❌ ${endpoint.label}: HTTP ${response.status}</span>\n`;
+                        continue;
+                    }
+
+                    const data = await response.json();
+                    const count = data.count || data.items?.length || 'N/A';
+                    log.innerHTML += `<span class="success">[Test 3] ✅ ${endpoint.label}: ${count} items</span>\n`;
+                } catch (error) {
+                    log.innerHTML += `<span class="error">[Test 3] ❌ ${endpoint.label}: ${error.message}</span>\n`;
+                }
+            }
+
+            updateConsoleLog();
+        }
+
+        // Test 4: Load Dashboard
+        async function loadDashboard() {
+            const logId = 'test4-log';
+            const log = document.getElementById(logId);
+            log.innerHTML = '';
+
+            try {
+                log.innerHTML += '<span class="info">[Test 4] Loading dashboard data...</span>\n';
+
+                const results = await Promise.all([
+                    fetch(`${API_BASE_URL}/sales?start_date=2026-06-01&end_date=2026-06-30`, { method: 'GET', mode: 'cors', credentials: 'omit', headers: { 'Accept': 'application/json' } }),
+                    fetch(`${API_BASE_URL}/dashboard/summary?start_date=2026-06-01&end_date=2026-06-30`, { method: 'GET', mode: 'cors', credentials: 'omit', headers: { 'Accept': 'application/json' } }),
+                    fetch(`${API_BASE_URL}/dashboard/by-product?start_date=2026-06-01&end_date=2026-06-30`, { method: 'GET', mode: 'cors', credentials: 'omit', headers: { 'Accept': 'application/json' } }),
+                    fetch(`${API_BASE_URL}/dashboard/by-date?start_date=2026-06-01&end_date=2026-06-30`, { method: 'GET', mode: 'cors', credentials: 'omit', headers: { 'Accept': 'application/json' } })
+                ]);
+
+                for (let i = 0; i < results.length; i++) {
+                    if (!results[i].ok) {
+                        log.innerHTML += `<span class="error">[Test 4] ❌ Request ${i + 1}: HTTP ${results[i].status}</span>\n`;
+                    } else {
+                        log.innerHTML += `<span class="success">[Test 4] ✅ Request ${i + 1}: Success</span>\n`;
+                    }
+                }
+
+                const [salesRes, summaryRes] = results;
+                const sales = await salesRes.json();
+                const summary = await summaryRes.json();
+
+                log.innerHTML += `<span class="success">\n[Test 4] Dashboard Data Loaded:\n`;
+                log.innerHTML += `- Sales Records: ${sales.count}\n`;
+                log.innerHTML += `- Total Sales: ¥${summary.total_sales.toLocaleString()}\n`;
+                log.innerHTML += `- Orders: ${summary.order_count}\n</span>`;
+            } catch (error) {
+                log.innerHTML += `<span class="error">[Test 4] ❌ Error: ${error.message}</span>\n`;
+                console.error('[Test 4] Error:', error);
+            }
+
+            updateConsoleLog();
+        }
+
+        // Initial setup
+        console.log('[System] Page loaded');
+        console.log(`[System] Browser URL: ${window.location.href}`);
+        console.log(`[System] API Base URL: ${API_BASE_URL}`);
+        updateConsoleLog();
+    </script>
+</body>
+</html>
