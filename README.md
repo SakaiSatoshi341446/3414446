@@ -96,9 +96,51 @@ npm run preview
 
 ## トラブルシューティング
 
-- バックエンド接続エラー: バックエンドが `http://localhost:8000` で起動しているか確認してください
-- CORS エラー: backend に CORS 設定済みです
-- ポート競合: 起動コマンドのポート番号を変更してください
+### 「Failed to fetch」エラーが表示される場合
+
+1. **まず TEST ページで診断してください**:
+   ```
+   http://localhost:5173/test.html
+   ```
+   このページで 4 つのテストボタンをクリックして、どのエンドポイントが失敗しているか確認してください。
+
+2. **詳細なガイドを参照**:
+   - `TEST_GUIDE.md` - インタラクティブなテスト方法
+   - `DEBUG_INSTRUCTIONS.md` - ステップバイステップのデバッグ手順
+   - `TROUBLESHOOTING.md` - よくある問題と解決方法
+
+3. **クイックチェック**:
+   ```bash
+   # バックエンドが起動しているか
+   ps aux | grep "uvicorn main" | grep -v grep
+   
+   # ポート 8000 がリッスンしているか
+   netstat -tlnp 2>/dev/null | grep 8000
+   
+   # API が応答するか
+   curl http://localhost:8000/api/dashboard/summary?start_date=2026-06-01&end_date=2026-06-30
+   ```
+
+4. **サーバーを再起動**:
+   ```bash
+   # ターミナル 1: バックエンド
+   cd /workspaces/3414446/backend
+   python -m uvicorn main:app --host 0.0.0.0 --port 8000
+   
+   # ターミナル 2: フロントエンド
+   cd /workspaces/3414446/frontend
+   npm run dev
+   
+   # ブラウザ: ハードリロード（Ctrl+Shift+R）を実行
+   http://localhost:5173
+   ```
+
+### その他の一般的な問題
+
+- **バックエンド接続エラー**: バックエンドが `http://0.0.0.0:8000` で起動しているか確認してください（`--host 0.0.0.0` が必須）
+- **CORS エラー**: Backend の CORS 設定は既に完了済みです。ブラウザコンソールで CORS エラーが表示されている場合は、キャッシュをクリアしてページをリロードしてください
+- **ポート競合**: 起動コマンドのポート番号を変更してください（例：`--port 8001`）
+- **古いコードが読み込まれている**: ブラウザの開発者ツール（F12）で DevTools を開いて、キャッシュをクリアしてください
 
 ## ライセンス・著者
 
