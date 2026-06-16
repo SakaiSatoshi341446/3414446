@@ -1,0 +1,542 @@
+[
+  {
+    "id": "S001",
+    "date": "2026-06-01",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Jane Smith"
+  },
+  {
+    "id": "S002",
+    "date": "2026-06-08",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "Maria Garcia"
+  },
+  {
+    "id": "S003",
+    "date": "2026-06-15",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Noah Brown"
+  },
+  {
+    "id": "S004",
+    "date": "2026-06-22",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "John Doe"
+  },
+  {
+    "id": "S005",
+    "date": "2026-06-29",
+    "product_name": "Chair",
+    "category": "Furniture",
+    "quantity": 1,
+    "unit_price": 18000,
+    "customer_name": "Yuki Sato"
+  },
+  {
+    "id": "S006",
+    "date": "2026-06-06",
+    "product_name": "Keyboard",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 7800,
+    "customer_name": "Emma Wilson"
+  },
+  {
+    "id": "S007",
+    "date": "2026-06-13",
+    "product_name": "Monitor",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 32000,
+    "customer_name": "Lucas Martin"
+  },
+  {
+    "id": "S008",
+    "date": "2026-06-20",
+    "product_name": "Notebook",
+    "category": "Stationery",
+    "quantity": 6,
+    "unit_price": 600,
+    "customer_name": "Akira Tanaka"
+  },
+  {
+    "id": "S009",
+    "date": "2026-06-27",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Liam Johnson"
+  },
+  {
+    "id": "S010",
+    "date": "2026-06-04",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "Olivia Davis"
+  },
+  {
+    "id": "S011",
+    "date": "2026-06-11",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Jane Smith"
+  },
+  {
+    "id": "S012",
+    "date": "2026-06-18",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "Maria Garcia"
+  },
+  {
+    "id": "S013",
+    "date": "2026-06-25",
+    "product_name": "Chair",
+    "category": "Furniture",
+    "quantity": 1,
+    "unit_price": 18000,
+    "customer_name": "Noah Brown"
+  },
+  {
+    "id": "S014",
+    "date": "2026-06-02",
+    "product_name": "Keyboard",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 7800,
+    "customer_name": "John Doe"
+  },
+  {
+    "id": "S015",
+    "date": "2026-06-09",
+    "product_name": "Monitor",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 32000,
+    "customer_name": "Yuki Sato"
+  },
+  {
+    "id": "S016",
+    "date": "2026-06-16",
+    "product_name": "Notebook",
+    "category": "Stationery",
+    "quantity": 6,
+    "unit_price": 600,
+    "customer_name": "Emma Wilson"
+  },
+  {
+    "id": "S017",
+    "date": "2026-06-23",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Lucas Martin"
+  },
+  {
+    "id": "S018",
+    "date": "2026-06-30",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "Akira Tanaka"
+  },
+  {
+    "id": "S019",
+    "date": "2026-06-07",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Liam Johnson"
+  },
+  {
+    "id": "S020",
+    "date": "2026-06-14",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "Olivia Davis"
+  },
+  {
+    "id": "S021",
+    "date": "2026-06-21",
+    "product_name": "Chair",
+    "category": "Furniture",
+    "quantity": 1,
+    "unit_price": 18000,
+    "customer_name": "Jane Smith"
+  },
+  {
+    "id": "S022",
+    "date": "2026-06-28",
+    "product_name": "Keyboard",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 7800,
+    "customer_name": "Maria Garcia"
+  },
+  {
+    "id": "S023",
+    "date": "2026-06-05",
+    "product_name": "Monitor",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 32000,
+    "customer_name": "Noah Brown"
+  },
+  {
+    "id": "S024",
+    "date": "2026-06-12",
+    "product_name": "Notebook",
+    "category": "Stationery",
+    "quantity": 6,
+    "unit_price": 600,
+    "customer_name": "John Doe"
+  },
+  {
+    "id": "S025",
+    "date": "2026-06-19",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Yuki Sato"
+  },
+  {
+    "id": "S026",
+    "date": "2026-06-26",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "Emma Wilson"
+  },
+  {
+    "id": "S027",
+    "date": "2026-06-03",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Lucas Martin"
+  },
+  {
+    "id": "S028",
+    "date": "2026-06-10",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "Akira Tanaka"
+  },
+  {
+    "id": "S029",
+    "date": "2026-06-17",
+    "product_name": "Chair",
+    "category": "Furniture",
+    "quantity": 1,
+    "unit_price": 18000,
+    "customer_name": "Liam Johnson"
+  },
+  {
+    "id": "S030",
+    "date": "2026-06-24",
+    "product_name": "Keyboard",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 7800,
+    "customer_name": "Olivia Davis"
+  },
+  {
+    "id": "S031",
+    "date": "2026-06-01",
+    "product_name": "Monitor",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 32000,
+    "customer_name": "Jane Smith"
+  },
+  {
+    "id": "S032",
+    "date": "2026-06-08",
+    "product_name": "Notebook",
+    "category": "Stationery",
+    "quantity": 6,
+    "unit_price": 600,
+    "customer_name": "Maria Garcia"
+  },
+  {
+    "id": "S033",
+    "date": "2026-06-15",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Noah Brown"
+  },
+  {
+    "id": "S034",
+    "date": "2026-06-22",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "John Doe"
+  },
+  {
+    "id": "S035",
+    "date": "2026-06-29",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Yuki Sato"
+  },
+  {
+    "id": "S036",
+    "date": "2026-06-06",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "Emma Wilson"
+  },
+  {
+    "id": "S037",
+    "date": "2026-06-13",
+    "product_name": "Chair",
+    "category": "Furniture",
+    "quantity": 1,
+    "unit_price": 18000,
+    "customer_name": "Lucas Martin"
+  },
+  {
+    "id": "S038",
+    "date": "2026-06-20",
+    "product_name": "Keyboard",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 7800,
+    "customer_name": "Akira Tanaka"
+  },
+  {
+    "id": "S039",
+    "date": "2026-06-27",
+    "product_name": "Monitor",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 32000,
+    "customer_name": "Liam Johnson"
+  },
+  {
+    "id": "S040",
+    "date": "2026-06-04",
+    "product_name": "Notebook",
+    "category": "Stationery",
+    "quantity": 6,
+    "unit_price": 600,
+    "customer_name": "Olivia Davis"
+  },
+  {
+    "id": "S041",
+    "date": "2026-06-11",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Jane Smith"
+  },
+  {
+    "id": "S042",
+    "date": "2026-06-18",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "Maria Garcia"
+  },
+  {
+    "id": "S043",
+    "date": "2026-06-25",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Noah Brown"
+  },
+  {
+    "id": "S044",
+    "date": "2026-06-02",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "John Doe"
+  },
+  {
+    "id": "S045",
+    "date": "2026-06-09",
+    "product_name": "Chair",
+    "category": "Furniture",
+    "quantity": 1,
+    "unit_price": 18000,
+    "customer_name": "Yuki Sato"
+  },
+  {
+    "id": "S046",
+    "date": "2026-06-16",
+    "product_name": "Keyboard",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 7800,
+    "customer_name": "Emma Wilson"
+  },
+  {
+    "id": "S047",
+    "date": "2026-06-23",
+    "product_name": "Monitor",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 32000,
+    "customer_name": "Lucas Martin"
+  },
+  {
+    "id": "S048",
+    "date": "2026-06-30",
+    "product_name": "Notebook",
+    "category": "Stationery",
+    "quantity": 6,
+    "unit_price": 600,
+    "customer_name": "Akira Tanaka"
+  },
+  {
+    "id": "S049",
+    "date": "2026-06-07",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Liam Johnson"
+  },
+  {
+    "id": "S050",
+    "date": "2026-06-14",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "Olivia Davis"
+  },
+  {
+    "id": "S051",
+    "date": "2026-06-21",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Jane Smith"
+  },
+  {
+    "id": "S052",
+    "date": "2026-06-28",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "Maria Garcia"
+  },
+  {
+    "id": "S053",
+    "date": "2026-06-05",
+    "product_name": "Chair",
+    "category": "Furniture",
+    "quantity": 1,
+    "unit_price": 18000,
+    "customer_name": "Noah Brown"
+  },
+  {
+    "id": "S054",
+    "date": "2026-06-12",
+    "product_name": "Keyboard",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 7800,
+    "customer_name": "John Doe"
+  },
+  {
+    "id": "S055",
+    "date": "2026-06-19",
+    "product_name": "Monitor",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 32000,
+    "customer_name": "Yuki Sato"
+  },
+  {
+    "id": "S056",
+    "date": "2026-06-26",
+    "product_name": "Notebook",
+    "category": "Stationery",
+    "quantity": 6,
+    "unit_price": 600,
+    "customer_name": "Emma Wilson"
+  },
+  {
+    "id": "S057",
+    "date": "2026-06-03",
+    "product_name": "Laptop",
+    "category": "Electronics",
+    "quantity": 1,
+    "unit_price": 128000,
+    "customer_name": "Lucas Martin"
+  },
+  {
+    "id": "S058",
+    "date": "2026-06-10",
+    "product_name": "Desk",
+    "category": "Furniture",
+    "quantity": 6,
+    "unit_price": 45000,
+    "customer_name": "Akira Tanaka"
+  },
+  {
+    "id": "S059",
+    "date": "2026-06-17",
+    "product_name": "Pen",
+    "category": "Stationery",
+    "quantity": 1,
+    "unit_price": 180,
+    "customer_name": "Liam Johnson"
+  },
+  {
+    "id": "S060",
+    "date": "2026-06-24",
+    "product_name": "Mouse",
+    "category": "Electronics",
+    "quantity": 6,
+    "unit_price": 2800,
+    "customer_name": "Olivia Davis"
+  }
+]

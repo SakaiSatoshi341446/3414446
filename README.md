@@ -1,46 +1,106 @@
-# GitHub Copilot 中級者向けワークショップ タイムテーブル
+# 販売データ分析ダッシュボード
 
-## ワークショップ概要
-- **日時**: 13:00-17:00（4時間）
-- **環境**: GitHub Codespaces
-- **成果物**: 販売データ分析ダッシュボード（Python + FastAPI / React + TypeScript）+ ユーザーマニュアル
+## プロジェクト概要
 
-## 想定技術要素
-### バックエンド
-- Python
-- Web API フレームワークは FastAPI を利用すること
+販売データの可視化ダッシュボードです。バックエンドは Python + FastAPI、フロントエンドは React + Vite で構成されています。基本的な売上集計、グラフ表示、フィルタ機能の実装例として利用できます。
 
-### フロントエンド
-- React
-- TypeScript
-- 開発環境は Vite を利用すること
+## 目的
 
-以上の開発環境前提のdevcontainer.jsonが用意されています。
----
+- 基本的な売上集計の実装例を確認する
+- FastAPI と React + Vite の連携例を学ぶ
+- グラフ表示とフィルタ機能の最小構成を試す
 
-## タイムテーブル
+## 構成
 
-| # | 時間 | フェーズ | 内容 |
-|---|------|---------|------|
-| 1 | 13:00-13:30 | **オープニング** | • オープニング＆環境確認<br>• ハンズオン用Repository確認<br>• Repository作成<br>• Codespaces起動確認 |
-| 2 | 13:30-14:00 | **第1部: Copilot CLI** | • Copilot CLIとは<br>• 各種モード（Plan, Autopilot）<br>• /fleet によるサブエージェントの並列実装<br>• Rubber-duck エージェントによる相互レビュー |
-| 3 | 14:00-14:50 | **ハンズオン1** | • GitHub.com上のCopilot に SPEC.md と issue を生成させる<br>• Copilot CLI でマルチエージェントで実装させる |
-| 4 | 14:50-15:00 | **休憩** | |
-| 5 | 15:00-15:30 | **第2部: GitHub Copilot のCustomize** | • GitHub Copilot のカスタマイズ一覧<br>• Agent, Skill の作成方法<br>• マルチエージェントのオーケストレーション |
-| 6 | 15:30-16:00 | **ハンズオン2** | • create-agent や create-skill のコマンドを使用して自作の agent や skill を作成する |
-| 7 | 16:00-16:10 | **休憩** | |
-| 8 | 16:10-16:20 | **第3部: GitHub.com上のCopilot と Agent** | • GitHub.com上のCopilot でできること<br>• Cloud Agent はどう動くか |
-| 9 | 16:20-16:40 | **ハンズオン3** | • 販売データ分析ダッシュボードのドキュメント作成タスク の issue を作成<br>• Cloud Agent へのドキュメント作成タスク の委任 |
-| 10 | 16:40-17:00 | **クロージング** | • 成果物共有と学んだこと |
+```text
+/
+├── backend/
+│   ├── main.py (FastAPI)
+│   ├── models.py (Pydantic models)
+│   ├── sample_data.json (サンプルデータ)
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── App.tsx
+│   │   ├── components/
+│   │   ├── lib/
+│   │   └── ...
+│   ├── package.json
+│   └── ...
+├── SPEC.md (仕様書)
+└── README.md (本ファイル)
+```
 
----
+## 前提条件
 
-## 時間配分サマリー
+- Python 3.8+
+- Node.js 16+ / npm 7+
+- ローカル開発環境
 
-| カテゴリ | 時間 | 割合 |
-|---------|------|------|
-| **座学** | 60分 | 25% |
-| **実習（ハンズオン）** | 130分 | 54% |
-| **休憩** | 20分 | 8% |
-| **クロージング** | 20分 | 8% |
-| **合計** | 240分 | 100% |
+## バックエンドセットアップ
+
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+## バックエンド起動
+
+```bash
+cd backend
+python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+- API: http://localhost:8000/api/sales
+- CORS 対応済み
+
+## フロントエンドセットアップ
+
+```bash
+cd frontend
+npm install
+```
+
+## フロントエンド起動（開発モード）
+
+```bash
+cd frontend
+npm run dev
+```
+
+- アプリ: http://localhost:5173
+
+## フロントエンド本番ビルド
+
+```bash
+cd frontend
+npm run build
+npm run preview
+```
+
+## 機能
+
+- 売上合計 / 注文件数の KPI 表示
+- 商品別売上を棒グラフで表示
+- 日別売上を折れ線グラフで表示
+- 販売明細をテーブルで表示
+- 日付範囲フィルタ
+- 商品名フィルタ
+
+## API エンドポイント
+
+- `GET /api/sales`
+- `GET /api/dashboard/summary`
+- `GET /api/dashboard/by-product`
+- `GET /api/dashboard/by-date`
+
+## トラブルシューティング
+
+- バックエンド接続エラー: バックエンドが `http://localhost:8000` で起動しているか確認してください
+- CORS エラー: backend に CORS 設定済みです
+- ポート競合: 起動コマンドのポート番号を変更してください
+
+## ライセンス・著者
+
+- License: MIT など任意のライセンスを設定してください
+- Author: Project Maintainer
