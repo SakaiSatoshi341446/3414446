@@ -118,6 +118,9 @@ async function request<T>(path: string, filters?: FilterParams): Promise<T> {
   let response: Response
   try {
     response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit',
       headers: {
         Accept: 'application/json',
       },

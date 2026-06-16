@@ -36,13 +36,12 @@ DATA_FILE = Path(__file__).with_name("sample_data.json")
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "*",
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
