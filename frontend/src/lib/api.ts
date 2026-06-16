@@ -1,4 +1,18 @@
-export const API_BASE_URL = 'http://localhost:8000/api'
+// Dynamically determine API base URL based on current browser location
+const getCurrentApiBaseUrl = (): string => {
+  const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  
+  if (isLocalhost) {
+    // For localhost development
+    return `http://${window.location.hostname}:8000/api`;
+  }
+  
+  // For remote/production environments
+  return `${window.location.protocol}//${window.location.hostname}:8000/api`;
+};
+
+export const API_BASE_URL = getCurrentApiBaseUrl();
+console.log(`[API] Using API_BASE_URL: ${API_BASE_URL}`);
 
 export interface SalesRecord {
   id: string
@@ -99,6 +113,7 @@ function parseJson<T>(bodyText: string): T {
 
 async function request<T>(path: string, filters?: FilterParams): Promise<T> {
   const url = `${API_BASE_URL}${path}${buildQueryString(filters)}`
+  console.log(`[API] Requesting: ${url}`)
 
   let response: Response
   try {
@@ -107,17 +122,25 @@ async function request<T>(path: string, filters?: FilterParams): Promise<T> {
         Accept: 'application/json',
       },
     })
+    console.log(`[API] Response status: ${response.status}`)
+    console.log(`[API] Response headers:`, {
+      'content-type': response.headers.get('content-type'),
+      'access-control-allow-origin': response.headers.get('access-control-allow-origin'),
+    })
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Unknown network error'
+    console.error(`[API] Fetch error:`, error)
     throw new Error(`Network error while requesting ${url}: ${message}`)
   }
 
   const bodyText = await response.text()
 
   if (!response.ok) {
+    console.error(`[API] Error response: ${bodyText.substring(0, 200)}`)
     throw new Error(getErrorMessage(bodyText, response))
   }
 
+  console.log(`[API] Success: got response of ${bodyText.length} bytes`)
   return parseJson<T>(bodyText)
 }
 
